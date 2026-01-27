@@ -18,14 +18,15 @@ export default function AboutOverlay({ onClose }: { onClose: () => void }) {
           />
 
           <div className="text-sm leading-relaxed">
-            <p className="mb-4">
-              Samuel Stober is a designer focused on visual systems,
-              editorial structures and spatial thinking.
-            </p>
             <p>
-              His work explores the relationship between image, rhythm
-              and reduction.
-            </p>
+              Samuel Stober </p>
+              <p>  
+                Diplom-Designer Industrial Design </p>
+            <p className="mt-4"></p>
+
+            <p> www.samuelstober.com </p>
+            <p> samuelstober@outlook.com  </p>
+            <p> @samuelstober</p>
           </div>
         </div>
       </div>

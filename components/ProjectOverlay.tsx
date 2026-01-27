@@ -16,11 +16,13 @@ export default function ProjectOverlay({
         className="bg-white w-[94vw] max-w-[1400px] h-[94vh]"
         onClick={(e) => e.stopPropagation()}
       >
-        <iframe
-          src={`${project.pdf.asset.url}#toolbar=0&navpanes=0&scrollbar=0`}
+   <iframe
+          src={`${project.pdf.asset.url}#page=1&toolbar=0&navpanes=0`}
           className="w-full h-full"
           style={{ border: 'none' }}
         />
+
+
       </div>
     </div>
   )
