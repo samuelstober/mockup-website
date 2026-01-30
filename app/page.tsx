@@ -11,35 +11,30 @@ export default function Home() {
   const [activeProject, setActiveProject] = useState<any | null>(null)
   const [showAbout, setShowAbout] = useState(false)
 
-  // 🔹 Bilder laden + Layout einmalig festlegen
+  // 🔹 Bilder laden + Layout einmalig 
   useEffect(() => {
-    const fetchImages = async () => {
-      const data = await client.fetch(`
-        *[_type == "imageEntry"] | order(order asc) {
+  const fetchImages = async () => {
+    const data = await client.fetch(`
+      *[_type == "imageEntry"] | order(order asc) {
+        _id,
+        size,
+        offsetX,
+        spacing,
+        image { asset->{url} },
+        project->{
           _id,
-          size,
-          image { asset->{url} },
-          project->{
-            _id,
-            title,
-            pdf { asset->{url} }
-          }
+          title,
+          pdf { asset->{url} }
         }
-      `)
+      }
+    `)
 
-      const withLayout = data.map((item: any) => ({
-        ...item,
-        _layout: {
-          offsetX: Math.random() * 600 - 300,
-          spacing: Math.random() * 32,
-        },
-      }))
+    setImages(data)
+  }
 
-      setImages(withLayout)
-    }
+  fetchImages()
+}, [])
 
-    fetchImages()
-  }, [])
 
   // 🔹 Zufällige Startposition (einmalig)
   useEffect(() => {
