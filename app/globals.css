@@ -17,3 +17,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Mobile: Bilder immer zentriert halten */
+@media (max-width: 767px) {
+  .project-item {
+    transform: translateX(0px) !important;
+  }
+}
+html, body {
+  overflow-x: hidden;
+}

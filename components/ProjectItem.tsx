@@ -25,15 +25,19 @@ const spacing = item.spacing ?? 24
 
 
   return (
-    <div
-      className="relative flex justify-center"
-      style={{ marginTop: `${spacing}px` }}
-    >
+   <div
+  className="relative flex justify-center"
+  style={{ marginTop: `${spacing}px` }}
+>
+
       <div
-        className={`relative ${sizeClass}`}
-        style={{ transform: `translateX(${offsetX}px)` }}
-        onClick={onClick}
-      >
+  className={`project-item relative ${sizeClass}`}
+  style={{
+    transform: `translateX(${offsetX}px)`,
+  }}
+  onClick={onClick}
+>
+
         {item.image?.asset?.url && (
           <img
             src={item.image.asset.url}

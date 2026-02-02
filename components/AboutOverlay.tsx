@@ -26,15 +26,28 @@ export default function AboutOverlay({ onClose }: { onClose: () => void }) {
       className="fixed inset-0 z-[100] bg-black/40 flex items-center justify-center"
       onClick={onClose}
     >
-      <div
-        className="bg-white w-[90vw] max-w-3xl p-12"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div
+  className="
+    bg-white
+    w-[92vw]
+    max-h-[85vh]
+    overflow-y-auto
+    px-4 py-6
+    md:w-[90vw]
+    md:max-w-3xl
+    md:max-h-none
+    md:p-12
+  "
+  onClick={(e) => e.stopPropagation()}
+>
+
+
         <div className="flex gap-8">
           {aboutImage && (
             <img
               src={urlFor(aboutImage).width(400).url()}
-              className="w-48 h-auto"
+              className="w-40 md:w-48 h-auto object-contain flex-shrink-0"
+
               alt="Samuel Stober"
             />
           )}
