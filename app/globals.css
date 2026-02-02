@@ -26,3 +26,9 @@ body {
 html, body {
   overflow-x: hidden;
 }
+/* Kein Text-Cursor & keine Textmarkierung */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
