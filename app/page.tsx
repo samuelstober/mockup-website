@@ -10,6 +10,13 @@ export default function Home() {
   const [images, setImages] = useState<any[]>([])
   const [activeProject, setActiveProject] = useState<any | null>(null)
   const [showAbout, setShowAbout] = useState(false)
+const [isMobile, setIsMobile] = useState(false)
+
+useEffect(() => {
+  setIsMobile(window.innerWidth < 768)
+}, [])
+
+
 
   // 🔹 Bilder laden + Layout einmalig 
   useEffect(() => {
@@ -74,10 +81,20 @@ export default function Home() {
       <div className="py-32">
         {images.map((item) => (
           <ProjectItem
-            key={item._id}
-            item={item}
-            onClick={() => setActiveProject(item.project)}
-          />
+  key={item._id}
+  item={item}
+  onClick={() => {
+    // 📱 MOBILE → PDF extern öffnen
+    if (isMobile) {
+      window.open(item.project.pdf.asset.url, '_blank')
+      return
+    }
+
+    // 🖥 DESKTOP → Overlay
+    setActiveProject(item.project)
+  }}
+/>
+
         ))}
       </div>
 
