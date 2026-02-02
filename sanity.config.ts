@@ -10,10 +10,12 @@ import { structure } from './sanity/structure'
 export default defineConfig({
   basePath: '/studio',
   projectId,
-  dataset,
+dataset,
+
   schema,
   plugins: [
     structureTool({ structure }),
     visionTool({ defaultApiVersion: apiVersion }),
   ],
 })
+
