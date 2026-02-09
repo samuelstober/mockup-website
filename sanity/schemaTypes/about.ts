@@ -12,6 +12,12 @@ export default defineType({
       type: 'image',
       options: { hotspot: true },
     }),
+defineField({
+  name: 'siteBackgroundColor',
+  title: 'Seiten-Hintergrundfarbe (RGB)',
+  type: 'string',
+  description: 'z. B. rgb(245,245,245) oder #ffffff',
+}),
 
     defineField({
       name: 'text',

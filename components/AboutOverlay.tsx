@@ -23,26 +23,44 @@ export default function AboutOverlay({ onClose }: { onClose: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-black/40 flex items-center justify-center"
-      onClick={onClose}
-    >
-    <div
+  className="
+    fixed inset-0 z-[100]
+    bg-black/40
+    flex items-center justify-center
+    px-4        /* 📱 Luft zum Rand */
+    md:px-8     /* 🖥 mehr Luft */
+  "
+  onClick={onClose}
+>
+
+ <div
   className="
     bg-white
-    w-[92vw]
+    w-full
     max-h-[85vh]
     overflow-y-auto
-    px-4 py-6
+
+    px-3 py-4        /* 📱 kompakt */
+    text-sm
+    leading-snug
+
     md:w-[90vw]
     md:max-w-3xl
     md:max-h-none
-    md:p-12
+    md:px-12 md:py-10 /* 🖥 luftig */
+    md:text-base
+    md:leading-normal
   "
   onClick={(e) => e.stopPropagation()}
 >
 
 
-        <div className="flex gap-8">
+
+
+
+        <div className="flex gap-4 md:gap-8 flex-col md:flex-row items-center md:items-start text-center md:text-left">
+
+
           {aboutImage && (
             <img
               src={urlFor(aboutImage).width(400).url()}

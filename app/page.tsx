@@ -11,11 +11,28 @@ export default function Home() {
   const [activeProject, setActiveProject] = useState<any | null>(null)
   const [showAbout, setShowAbout] = useState(false)
 const [isMobile, setIsMobile] = useState(false)
+const [bgColor, setBgColor] = useState('#ffffff')
+
 
 useEffect(() => {
   setIsMobile(window.innerWidth < 768)
 }, [])
 
+useEffect(() => {
+  const fetchBackground = async () => {
+    const data = await client.fetch(`
+      *[_type == "siteSettings"][0]{
+        backgroundColor
+      }
+    `)
+
+    if (data?.backgroundColor) {
+      setBgColor(data.backgroundColor)
+    }
+  }
+
+  fetchBackground()
+}, [])
 
 
   // 🔹 Bilder laden + Layout einmalig 
@@ -62,7 +79,10 @@ useEffect(() => {
   }, [])
 
   return (
-<main className="relative min-h-screen">
+<main
+  className="relative min-h-screen"
+  style={{ backgroundColor: bgColor }}
+>
 
 
 

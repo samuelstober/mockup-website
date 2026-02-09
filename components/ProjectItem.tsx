@@ -31,12 +31,13 @@ const spacing = item.spacing ?? 24
 >
 
       <div
-  className={`project-item relative ${sizeClass}`}
+  className={`project-item relative overflow-hidden ${sizeClass}`}
   style={{
     transform: `translateX(${offsetX}px)`,
   }}
   onClick={onClick}
 >
+
 
         {item.image?.asset?.url && (
           <img
